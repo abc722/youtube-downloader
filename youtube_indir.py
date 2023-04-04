@@ -1,35 +1,29 @@
 from pytube import YouTube
 
-class Video():
-    link = ''
-    
-    def __init__(self, link):
-        self.link  = link                               #class nedir nasıl olulturulur , contruction nedir nasıl çalıştırılı , calssa fonk. nasıl ayzılır, başka bi sayfadan class nasıl çağrılır, nesne nasıl üretilir.
-        self.yt = YouTube(link)
-    
-    def description(self):
-        #video başlığı
-        print("başlık:" , self.yt.title)
+link = input("Enter the link:")
+yt = YouTube(link)
 
-        #video görüntülenme sayısı
-        print("görüntülenme sayısı:" ,self.yt.views)
+#video başlığı
+print("başlık:" , yt.title)
 
-        #video uzunluğu
-        print("uzunluk:" ,self.yt.length)
+#video görüntülenme sayısı
+print("görüntülenme sayısı:" ,yt.views)
 
-        #videonun açıklması
-        print("açıklama:",self.yt.description)
+#video uzunluğu
+print("uzunluk:" ,yt.length)
 
-        #beğeni
-        print("beğeni:" ,self.yt.rating)
+#videonun açıklması
+print("açıklama:",yt.description)
 
-    def download(self):
-        ys = self.yt.streams.get_highest_resolution()
+#beğeni
+print("beğeni:" ,yt.rating)
 
-        #indirme başlatılıyor
-        print("indiriliyor...")
+ys = yt.streams.get_highest_resolution()
 
-        ys.download()
+#indirme başlatılıyor
+print("indiriliyor...")
 
-        print("indirme tamamlandı!!")        
+ys.download()
+
+print("indirme tamamlandı!!")
         
